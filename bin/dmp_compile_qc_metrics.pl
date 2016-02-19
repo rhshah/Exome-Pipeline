@@ -1863,10 +1863,10 @@ sub PlotGraphs
     }
     }
     else{
-    	my $cmd = "$BSUB -q $queue -J PreparePDF.$$ -cwd $outdir -e PreparePDF.$$.%J.stderr -o PreparePDF.$$.%J.stdout -We 0:59 -R \"rusage[mem=5]\" -M 10 -n 1 \"$PERL $MetricsScript $basename $R\"";
+    	my $cmd = "$BSUB -q $queue -J PreparePDF.$$ -cwd $outdir -e PreparePDF.$$.%J.stderr -o PreparePDF.$$.%J.stdout -We 24:00 -R \"rusage[mem=5]\" -M 10 -n 1 \"$PERL $MetricsScript $basename $R\"";
     	$logger->debug( "COMMAND: $cmd");
     	eval{
-    		`$BSUB -q $queue -J PreparePDF.$$ -cwd $outdir -e PreparePDF.$$.%J.stderr -o PreparePDF.$$.%J.stdout -We 0:59 -R "rusage[mem=5]" -M 10 -n 1 "$PERL $MetricsScript $basename $R"`;
+    		`$BSUB -q $queue -J PreparePDF.$$ -cwd $outdir -e PreparePDF.$$.%J.stderr -o PreparePDF.$$.%J.stdout -We 24:00 -R "rusage[mem=5]" -M 10 -n 1 "$PERL $MetricsScript $basename $R"`;
 			`$BSUB -q $queue -cwd $outdir -w "post_done(PreparePDF.$$)" -J NotifyPreparePDF.$$ -e NotifyPreparePDF.$$.%J.stderr -o NotifyPreparePDF.$$.stat -We 0:59 -R "rusage[mem=2]" -M 4 -n 1 "$outdir/Notify.csh"`;	
            
     	};
