@@ -1604,6 +1604,7 @@ sub MergeDataFromDirectory {
 	my @titleBarcode    = @$barcode;
 	my @titlePool       = @$pool;
 	my @titleSampleId   = @$titleSampleId;
+	my @titleCollabId	= @$collabId;
 	my %barcodes        = ();
 	my %indexHash       = ();
 	my %titleInfo       = ();
@@ -1873,11 +1874,11 @@ sub MergeDataFromDirectory {
 
 			my $read1ListName =
 			    $datadir . "/"
-			  . $titleSampleId[$sampleNum] . "_" . "*" . "_L00*"
+			  . $titleCollabId[$sampleNum] . "_" . "*" . "_L00*"
 			  . "_R1_*.fastq.gz";
 			my $read2ListName =
 			    $datadir . "/"
-			  . $titleSampleId[$sampleNum] . "_" . "*" . "_L00*"
+			  . $titleCollabId[$sampleNum] . "_" . "*" . "_L00*"
 			  . "_R2_*.fastq.gz";
 
 			my $read1Name =
