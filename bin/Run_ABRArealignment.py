@@ -57,7 +57,7 @@ def main():
         "--mdp",
         action="store_true",
         dest="dp",
-        default=100,
+        default=1000,
         help="Threshold for downsampling depth to run ABRA")
     parser.add_argument(
         "-k",
